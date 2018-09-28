@@ -214,6 +214,8 @@
 
     <script>
         function LoadFavourites() {
+            
+            if(localStorage.favouritelist == null){return;}
             var favelist = JSON.parse(localStorage.favouritelist);
             if (favelist.length > 0) {
                 $(favelist).each(function (index, value) {
@@ -291,8 +293,7 @@
                 var name = $('#namefav').val().charAt(0).toUpperCase() + $('#namefav').val().slice(1);
                 var favelist = JSON.parse(localStorage.getItem("favouritelist"));
                 if (VerifyNRIC(nric)) {
-
-                    if (favelist.length > 0) {
+                    if (favelist!=null) {
 
                         var fave = {
                             NRIC: nric,
